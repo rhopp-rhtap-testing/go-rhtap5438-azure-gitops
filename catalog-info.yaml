@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-rhtap5438-azure-gitops
+  description: This is GitOps manifest for go-rhtap5438-azure   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-rhtap5438-azure
+    backstage.io/kubernetes-id: go-rhtap5438-azure 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhopp-rhtap-testing/go-rhtap5438-azure-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhopp-rhtap-testing.go-rhtap5438-azure-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-rhtap5438-azure
